@@ -30,7 +30,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
 TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.firstinspires.ftc.teamcode.teamcode;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -97,10 +97,13 @@ public class AController extends LinearOpMode {
 
             rightMotor.setPower(-gamepad1.right_stick_y);
 
-            while(gamepad1.dpad_up) {
-                leftFW.setPower(100);
-                rightFW.setPower(100);
-            }
+            leftFW.setPower(gamepad1.left_trigger);
+
+            rightFW.setPower(-gamepad1.left_trigger);
+
+            leftFW.setPower(-gamepad1.right_trigger);
+
+            rightFW.setPower(gamepad1.right_trigger);
         }
     }
 }
